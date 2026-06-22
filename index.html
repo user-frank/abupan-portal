@@ -15,20 +15,36 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <style>
-        /* 讓鑲嵌的視窗全螢幕，沒有邊框，並加入深色背景防閃白光 */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: #0E1117; /* Streamlit 預設暗黑底色 */
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+    /* 讓父層網頁全螢幕，沒有捲軸，並設定深色背景防閃白光 */
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background-color: #0E1117;
+    }
+    
+    /* iframe 必須保持完全滿版，不可以縮小高度，否則白條會跟著上移 */
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+    }
+
+    /* 物理外掛：用一塊黑色的蓋子，強制貼在畫面最底部遮住白條 */
+    body::after {
+        content: "";
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 45px; /* 這個高度請根據你手機上白條的實際大小微調，大約 40px~55px */
+        background-color: #0E1117; /* 你的暗黑底色 */
+        z-index: 9999; /* 確保它疊在最上面 */
+        pointer-events: none; /* 避免干擾觸控 */
+    }
+</style>
 </head>
 <body>
     <!-- 鑲嵌你的 Streamlit 網站，開啟 embed 模式並強制隱藏底部 footer -->
