@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>阿布潘水產 - 智能決策系統</title>
+    <title>阿布潘水產 - 內部員工系統</title>
     
-    <!-- 這裡就是讓手機抓取正確 Logo 的地方！ -->
+    <!-- 手機加入主畫面抓取的 Logo 圖示 -->
     <link rel="apple-touch-icon" href="logo.png">
     <link rel="icon" type="image/png" href="logo.png">
 
@@ -15,12 +15,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <style>
-        /* 讓鑲嵌的視窗全螢幕，沒有邊框 */
+        /* 讓鑲嵌的視窗全螢幕，沒有邊框，並加入深色背景防閃白光 */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden;
+            background-color: #0E1117; /* Streamlit 預設暗黑底色 */
         }
         iframe {
             width: 100%;
@@ -30,7 +31,7 @@
     </style>
 </head>
 <body>
-    <!-- 這裡放你原本 Streamlit 的網址 -->
-    <iframe src="https://abupan.streamlit.app/?embed=true"></iframe>
+    <!-- 鑲嵌你的 Streamlit 網站，開啟 embed 模式並強制隱藏底部 footer -->
+    <iframe src="https://abupan.streamlit.app/?embed=true&embed_options=show_footer=false"></iframe>
 </body>
 </html>
